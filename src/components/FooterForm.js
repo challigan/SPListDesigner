@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 
 function FooterForm({ handleFooterChange }) {
-  const [footerBackground, setFooterBackgroundColor] = useState('');
-  const [footerTextColor, setFooterTextColor] = useState('');
+  const [footerBackground, setFooterBackgroundColor] = useState('#000000');
+  const [footerTextColor, setFooterTextColor] = useState('#000000');
   const [footerText, setFooterText] = useState('');
+  
 
-  const updateFooter = () => {
+  const updateFooter = (e) => {
+    e.preventDefault();
     handleFooterChange({
       "elmType": "div",
       "style": {
@@ -38,18 +40,27 @@ function FooterForm({ handleFooterChange }) {
   }
 
   return (
-    <div>
-      <label>Background Color</label>
-      <input type="text" value={footerBackground} onChange={e => setFooterBackgroundColor(e.target.value)} />
-
-      <label>Footer Text Color</label>
-      <input type="text" value={footerTextColor} onChange={e => setFooterTextColor(e.target.value)} />
-
-      <label>Footer Text</label>
-      <input type="text" value={footerText} onChange={e => setFooterText(e.target.value)} />
-
-      <button onClick={updateFooter}>Update Footer</button>
-    </div>
+    <form onSubmit={updateFooter} className="footer-form">
+      <div className="form-row">
+        <label className="form-label">Background Color</label>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <input type="color" value={footerBackground} onChange={e => setFooterBackgroundColor(e.target.value)} />
+        <div style={{ width: '400px', height: '40px',backgroundColor: footerBackground, marginLeft: '10px' }}></div>
+      </div>
+      </div>
+      <div className="form-row">
+        <label className="form-label">Footer Text Color</label>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <input type="color" value={footerTextColor} onChange={e => setFooterTextColor(e.target.value)} />
+        <div style={{ width: '400px', height: '40px',backgroundColor: footerTextColor, marginLeft: '10px' }}></div>
+      </div>
+      </div>
+      <div className="form-row">
+        <label className="form-label">Footer Text</label>
+        <input type="text" value={footerText} onChange={e => setFooterText(e.target.value)} />
+      </div>
+      <button onClick={e => updateFooter(e)}>Update Footer</button>
+    </form>
   );
 }
 

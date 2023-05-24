@@ -20,7 +20,9 @@ function FormBuilder() {
     setSections([...sections, { displayname: "", fields: [""] }]);
   };
 
-
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(JSON.stringify({ sections }, null, 2));
+  };
 
   return (
     <div className="App">
@@ -29,9 +31,8 @@ function FormBuilder() {
       ))}
       <button onClick={addSection}>Add Section</button>
       <h2>Body JSON Output</h2>
-
       <pre>{JSON.stringify({ sections }, null, 2)}</pre>
-      
+      <button onClick={copyToClipboard}>Copy to clipboard</button>
     </div>
   );
 }

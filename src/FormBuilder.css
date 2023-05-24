@@ -1,6 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-  }
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
   
   .App {
     max-width: 800px;
@@ -190,3 +192,46 @@ body {
     justify-content: space-between;
     align-items: center;
   }
+
+  .header-form .form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .header-form .form-label {
+    width: 40%;
+    text-align: center;
+  }
+  
+  .header-form input {
+    width: 55%;
+  }
+  
+  .update-header-button {
+    display: block;
+    margin: 20px auto;
+  }
+  
+  .footer-form .form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .footer-form .form-label {
+    width: 40%;
+    text-align: center;
+  }
+  
+  .footer-form input {
+    width: 55%;
+  }
+  
+  .update-footer-button {
+    display: block;
+    margin: 20px auto;
+  }
+  
