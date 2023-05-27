@@ -1,23 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Section from './Section';
 
-function FormBuilder() {
-  const [sections, setSections] = useState([{ displayname: "", fields: [""] }]);
+function FormBuilder({ sections, handleSectionsChange }) {
 
   const handleSectionChange = (index, newSection) => {
     const newSections = [...sections];
     newSections[index] = newSection;
-    setSections(newSections);
+    handleSectionsChange(newSections);
   };
 
   const deleteSection = (index) => {
     const newSections = [...sections];
     newSections.splice(index, 1);
-    setSections(newSections);
+    handleSectionsChange(newSections);
   };
 
   const addSection = () => {
-    setSections([...sections, { displayname: "", fields: [""] }]);
+    handleSectionsChange([...sections, { displayname: "", fields: [""] }]);
   };
 
   const copyToClipboard = () => {

@@ -1,12 +1,5 @@
-import React, { useState } from 'react';
+function HeaderForm({ handleHeaderChange, backgroundColor, setBackgroundColor, iconName, setIconName, iconColor, setIconColor, headerTextColor, setHeaderTextColor, headerText, setHeaderText }) {
 
-function HeaderForm({ handleHeaderChange }) {
-  const [backgroundColor, setBackgroundColor] = useState('#000000');
-  const [iconName, setIconName] = useState('');
-  const [iconColor, setIconColor] = useState('#000000');
-  const [headerTextColor, setHeaderTextColor] = useState('#000000');
-  const [headerText, setHeaderText] = useState('');
-  
 
   const updateHeader = (e) => {
     e.preventDefault();

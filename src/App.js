@@ -10,6 +10,14 @@ function App() {
   const [activeForm, setActiveForm] = useState('Body');
   const [header, setHeader] = useState({});
   const [footer, setFooter] = useState({});
+  const [backgroundColor, setBackgroundColor] = useState('#000000');
+  const [iconName, setIconName] = useState('');
+  const [iconColor, setIconColor] = useState('#000000');
+  const [headerTextColor, setHeaderTextColor] = useState('#000000');
+  const [headerText, setHeaderText] = useState('');
+  const [footerBackground, setFooterBackgroundColor] = useState('#000000');
+const [footerTextColor, setFooterTextColor] = useState('#000000');
+const [footerText, setFooterText] = useState('');
 
   const [sections, setSections] = useState([{ displayname: "", fields: [""] }]);
 
@@ -24,7 +32,19 @@ function App() {
   const forms = {
     'Header': (
       <>
-        <HeaderForm handleHeaderChange={handleHeaderChange} />
+        <HeaderForm 
+          handleHeaderChange={handleHeaderChange} 
+          backgroundColor={backgroundColor} 
+          setBackgroundColor={setBackgroundColor}
+          iconName={iconName}
+          setIconName={setIconName}
+          iconColor={iconColor}
+          setIconColor={setIconColor}
+          headerTextColor={headerTextColor}
+          setHeaderTextColor={setHeaderTextColor}
+          headerText={headerText}
+          setHeaderText={setHeaderText}
+        />
         <h2>Header JSON Output</h2>
         <pre>{JSON.stringify(header, null, 2)}</pre>
         <button onClick={() => navigator.clipboard.writeText(JSON.stringify(header, null, 2))}>Copy to Clipboard</button>
@@ -32,17 +52,26 @@ function App() {
     ),
     'Body': (
       <>
-        <FormBuilder sections={sections} setSections={setSections} />
+        <FormBuilder sections={sections} handleSectionsChange={setSections} />
       </>
     ),
     'Footer': (
       <>
-        <FooterForm handleFooterChange={handleFooterChange} />
+        <FooterForm 
+          handleFooterChange={handleFooterChange} 
+          footerBackground={footerBackground}
+          setFooterBackgroundColor={setFooterBackgroundColor}
+          footerTextColor={footerTextColor}
+          setFooterTextColor={setFooterTextColor}
+          footerText={footerText}
+          setFooterText={setFooterText}
+        />
         <h2>Footer JSON Output</h2>
         <pre>{JSON.stringify(footer, null, 2)}</pre>
         <button onClick={() => navigator.clipboard.writeText(JSON.stringify(footer, null, 2))}>Copy to Clipboard</button>
       </>
-    )  };
+    )
+      };
 
   return (
     <body>

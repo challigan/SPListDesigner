@@ -1,10 +1,5 @@
-import React, { useState } from 'react';
+function FooterForm({ handleFooterChange, footerBackground, setFooterBackgroundColor, footerTextColor, setFooterTextColor, footerText, setFooterText }) {
 
-function FooterForm({ handleFooterChange }) {
-  const [footerBackground, setFooterBackgroundColor] = useState('#000000');
-  const [footerTextColor, setFooterTextColor] = useState('#000000');
-  const [footerText, setFooterText] = useState('');
-  
 
   const updateFooter = (e) => {
     e.preventDefault();
