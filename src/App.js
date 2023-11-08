@@ -82,7 +82,7 @@ const [footerText, setFooterText] = useState('');
         <a href="https://list.challigan.com/" class="menu-item">List Generator</a>
         <a href="https://trigger.challigan.com/" class="menu-item">Trigger Condition Generator</a>
         <a href="https://odata.challigan.com/" class="menu-item">ODATA Query Generator</a>
-        <a href="https://form.challigan.com/" class="menu-item">List Form Designer</a>
+        <a href="https://button.challigan.com/" class="menu-item">Flow Button Generator</a>
     </nav>
         </header>
         <nav class="horizontal-menu">
